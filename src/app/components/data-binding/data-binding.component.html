@@ -1,0 +1,44 @@
+<div class="row">
+    <div class="col-4">
+        <h2> One way data binding .ts to .html</h2>
+
+    </div>
+    <div class="col-4">
+
+    </div>
+    <div class="col-4">
+
+    </div>
+</div>
+<div class="row">
+    <div class="col-4">
+        <div class="row ">
+            <div class="col-4 bg-danger">
+                interpolation
+                <h4>{{courseName}}</h4>
+                <input type="text" value="{{courseName}}" name="" id="">
+                <input type="{{inputType}}" name="" id="">
+            </div>
+            <div class="col-4 bg-warning">
+                Proparty Binding
+                <div [class]="myClassName">Primary</div>
+                <input type="text" [value]="courseName" name="" id="">
+                <input [type]="inputType" name="" id="">
+            </div>
+            <div class="col-4">
+                Event Binding
+                <button class="btn btn-success" (click)="callEvent('Hello from event')">Click Me</button>
+            </div>
+        </div>
+    </div>
+    <div class="col-4">
+        Two way data binding
+        <input type="text" [(ngModel)]="courseName"> -{{courseName}}
+        <input type="checkbox" [(ngModel)]="isIndian" name="" id="">
+    </div>
+    <div class="col-4">
+        Signal Binding
+        {{fullName()}}
+
+    </div>
+</div>

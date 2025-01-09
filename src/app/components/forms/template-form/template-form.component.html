@@ -1,0 +1,52 @@
+<div class="container-fluid">
+    <form class="row" #form="ngForm">
+        <div class="col-6">
+        <div class="mb-3">
+          <label for="exampleInputEmail1"  class="form-label">Full Name</label>
+          <input type="email" class="form-control" #fName="ngModel" name="fName" [(ngModel)]="userForm.fName" required minlength="3" id="exampleInputEmail1" aria-describedby="emailHelp">
+          <div class="text-danger">
+            @if((fName.touched || fName.dirty)&&fName.errors?.['required']){
+                <span >This is required</span>
+            }
+            @else if(fName.errors?.['minlength']){
+                <span >Min is required</span>
+            }
+          </div>
+          <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+         
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label">User Name</label>
+          <input type="text" name="username" [(ngModel)]="userForm.username" class="form-control" id="exampleInputPassword1">
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">City</label>
+            <input type="text" name="city" [(ngModel)]="userForm.city" class="form-control" id="exampleInputPassword1">
+          </div>
+        </div>
+        <div class="col-6">
+          <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">State</label>
+            <input type="text" name="state" [(ngModel)]="userForm.state" class="form-control" id="exampleInputPassword1">
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Pin</label>
+            <input type="text" name="pin" [(ngModel)]="userForm.pin" class="form-control" id="exampleInputPassword1">
+          </div>
+        <div class="mb-3 form-check">
+          <input type="checkbox" name="isTermaccept" [(ngModel)]="userForm.isTermaccept" class="form-check-input" id="exampleCheck1">
+          <label class="form-check-label" for="exampleCheck1">Check me out</label>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-6">
+            <button type="submit" class="btn btn-primary" (click)="onReset()">Reset</button>
+
+        </div>
+        <div class="col-6">
+            <button type="submit" class="btn btn-primary" [disabled]="form.invalid" (click)="onSubmit()">Submit</button>
+
+        </div>
+    </div>
+      </form>
+</div>
